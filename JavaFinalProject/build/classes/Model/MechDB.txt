@@ -1,0 +1,4 @@
+Atlas,100,Assault,2755
+Jade Hawk,75,Heavy,3135
+Uziel,50,Medium,3065
+Jackrabbit,25,Light,2765
