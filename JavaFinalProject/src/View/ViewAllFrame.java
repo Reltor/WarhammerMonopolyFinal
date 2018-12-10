@@ -5,6 +5,9 @@
  */
 package View;
 
+import Controller.BattleMech;
+import Controller.BattleTechIO;
+import java.util.Vector;
 import javax.swing.JFrame;
 
 /**
@@ -19,6 +22,7 @@ public class ViewAllFrame extends javax.swing.JFrame {
     public ViewAllFrame(JFrame main) {
         initComponents();
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        initFields();
     }
 
     /**
@@ -68,6 +72,20 @@ public class ViewAllFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void initFields()
+    {
+        String output = "";
+        String line;
+        BattleMech mech;
+        Vector allData = BattleTechIO.readAll();
+        for (int i = 0;i<allData.size(); ++i)
+        {
+            mech = (BattleMech) allData.get(i);
+            line = mech.getName() + " , " + mech.getClassName() + " , " + mech.getEra() + " , " + mech.getTonnage() + "\n";
+            output += line;
+        }
+        this.jTextArea1.setText(output);
+    }
     /**
      * @param args the command line arguments
      */

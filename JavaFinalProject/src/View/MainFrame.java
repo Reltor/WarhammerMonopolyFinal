@@ -5,6 +5,7 @@
  */
 package View;
 
+import Controller.BattleTechIO;
 import java.util.Vector;
 
 /**
@@ -34,7 +35,6 @@ public class MainFrame extends javax.swing.JFrame {
         txtTonnage = new javax.swing.JTextField();
         txtClass = new javax.swing.JTextField();
         txtEra = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
         btnSearch = new javax.swing.JButton();
         btnViewAll = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
@@ -44,6 +44,8 @@ public class MainFrame extends javax.swing.JFrame {
         lblTonnage = new javax.swing.JLabel();
         lblClass = new javax.swing.JLabel();
         lblEra = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         lblTitle = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -71,6 +73,11 @@ public class MainFrame extends javax.swing.JFrame {
         btnDelete.setText("Delete");
 
         btnEdit.setText("Edit");
+        btnEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditActionPerformed(evt);
+            }
+        });
 
         btnAddNew.setText("Add New");
 
@@ -85,6 +92,14 @@ public class MainFrame extends javax.swing.JFrame {
 
         lblEra.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblEra.setText("Era");
+
+        jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+        jTextArea1.setEditable(false);
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jTextArea1.setText(" Welcome to the Database....\n\n Input the a name and then select\n the desired function");
+        jScrollPane2.setViewportView(jTextArea1);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -106,8 +121,7 @@ public class MainFrame extends javax.swing.JFrame {
                             .addComponent(txtEra, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtName))
                         .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btnSearch)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -117,8 +131,8 @@ public class MainFrame extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnEdit)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnAddNew)
-                        .addContainerGap(27, Short.MAX_VALUE))))
+                        .addComponent(btnAddNew)))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -140,11 +154,9 @@ public class MainFrame extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtEra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblEra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(40, 40, 40))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1)
-                        .addGap(18, 18, 18)))
+                            .addComponent(lblEra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jScrollPane2))
+                .addGap(40, 40, 40)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSearch)
                     .addComponent(btnViewAll)
@@ -183,7 +195,8 @@ public class MainFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
-        // TODO add your handling code here:
+        BattleTechIO.readLine(txtName.getText());
+        
     }//GEN-LAST:event_btnSearchActionPerformed
 
     private void txtEraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEraActionPerformed
@@ -194,6 +207,11 @@ public class MainFrame extends javax.swing.JFrame {
         ViewAllFrame vw = new ViewAllFrame(this);
         vw.setVisible(rootPaneCheckingEnabled);
     }//GEN-LAST:event_btnViewAllActionPerformed
+
+    private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
+        ConfirmEditFrame ce = new ConfirmEditFrame("test");
+        ce.setVisible(rootPaneCheckingEnabled);
+    }//GEN-LAST:event_btnEditActionPerformed
 
     /**
      * @param args the command line arguments
@@ -238,7 +256,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnViewAll;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel lblClass;
     private javax.swing.JLabel lblEra;
     private javax.swing.JLabel lblName;

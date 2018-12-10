@@ -24,7 +24,7 @@ public class BattleTechIO {
         
     }
     
-    public static BattleMech readLine()
+    public static BattleMech readLine(String mechName)
     {
         return new BattleMech();
     }
