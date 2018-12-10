@@ -5,8 +5,9 @@
  */
 package View;
 
-import Controller.BattleTechIO;
+import Controller.*;
 import java.util.Vector;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -44,11 +45,12 @@ public class MainFrame extends javax.swing.JFrame {
         lblTonnage = new javax.swing.JLabel();
         lblClass = new javax.swing.JLabel();
         lblEra = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        scrollPane = new javax.swing.JScrollPane();
+        txtDisplayArea = new javax.swing.JTextArea();
         lblTitle = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocation(new java.awt.Point(0, 0));
 
         txtEra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -71,6 +73,11 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         btnDelete.setText("Delete");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
 
         btnEdit.setText("Edit");
         btnEdit.addActionListener(new java.awt.event.ActionListener() {
@@ -93,13 +100,13 @@ public class MainFrame extends javax.swing.JFrame {
         lblEra.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblEra.setText("Era");
 
-        jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        scrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
-        jTextArea1.setEditable(false);
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jTextArea1.setText(" Welcome to the Database....\n\n Input the a name and then select\n the desired function");
-        jScrollPane2.setViewportView(jTextArea1);
+        txtDisplayArea.setEditable(false);
+        txtDisplayArea.setColumns(20);
+        txtDisplayArea.setRows(5);
+        txtDisplayArea.setText(" Welcome to the Database....\n\n Input the a name and then select\n the desired function");
+        scrollPane.setViewportView(txtDisplayArea);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -121,7 +128,7 @@ public class MainFrame extends javax.swing.JFrame {
                             .addComponent(txtEra, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtName))
                         .addGap(18, 18, 18)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(scrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btnSearch)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -155,7 +162,7 @@ public class MainFrame extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtEra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblEra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(jScrollPane2))
+                    .addComponent(scrollPane))
                 .addGap(40, 40, 40)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSearch)
@@ -195,7 +202,21 @@ public class MainFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
-        BattleTechIO.readLine(txtName.getText());
+        try{
+        BattleMech readMech = BattleTechIO.readLine(txtName.getText());
+        this.txtName.setText(readMech.getName());
+        this.txtClass.setText(readMech.getClassName());
+        this.txtEra.setText(Integer.toString(readMech.getEra()));
+        this.txtTonnage.setText(Integer.toString(readMech.getTonnage()));
+        this.txtDisplayArea.setText("Search Successful\n" +
+                                    "Record for: '" + readMech.getName() + "' found.");
+        }
+        catch (LineNotFoundException e)
+        {
+            JOptionPane.showMessageDialog(this, "No record with this name has been found");
+        }
+                
+                
         
     }//GEN-LAST:event_btnSearchActionPerformed
 
@@ -212,6 +233,19 @@ public class MainFrame extends javax.swing.JFrame {
         ConfirmEditFrame ce = new ConfirmEditFrame("test");
         ce.setVisible(rootPaneCheckingEnabled);
     }//GEN-LAST:event_btnEditActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        try
+        {
+            BattleMech deletedMech = BattleTechIO.readLine(this.txtName.getText());
+            String confirmString = "Are you sure you want to delete this record: \n" +
+                                   "test";
+        }
+        catch (LineNotFoundException e)
+        {
+            JOptionPane.showMessageDialog(this, "No Record with this Name has been found");
+        }
+    }//GEN-LAST:event_btnDeleteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -256,14 +290,14 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnViewAll;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel lblClass;
     private javax.swing.JLabel lblEra;
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JLabel lblTonnage;
+    private javax.swing.JScrollPane scrollPane;
     private javax.swing.JTextField txtClass;
+    private javax.swing.JTextArea txtDisplayArea;
     private javax.swing.JTextField txtEra;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtTonnage;

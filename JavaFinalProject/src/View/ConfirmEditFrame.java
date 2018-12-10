@@ -5,8 +5,8 @@
  */
 package View;
 
-import Controller.BattleMech;
-import Controller.BattleTechIO;
+import Controller.*;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -78,6 +78,9 @@ public class ConfirmEditFrame extends javax.swing.JFrame {
         lblEra.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblEra.setText("Era");
 
+        inputTonnage.setText("1000");
+
+        inputEra.setText("2018");
         inputEra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inputEraActionPerformed(evt);
@@ -97,6 +100,11 @@ public class ConfirmEditFrame extends javax.swing.JFrame {
         });
 
         btnCancel.setText("Cancel");
+        btnCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelActionPerformed(evt);
+            }
+        });
 
         lblNewRecord.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblNewRecord.setText("New Record");
@@ -197,16 +205,33 @@ public class ConfirmEditFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_inputEraActionPerformed
 
     private void btnConfirmEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmEditActionPerformed
+        
+        try 
+        {
         String n = inputName.getText();
         int t = Integer.parseInt(inputTonnage.getText());
         String c = inputClass.getText();
         int e = Integer.parseInt(inputEra.getText());
-        
-        
+        if (inputName.getText().isEmpty() || inputClass.getText().isEmpty())
+        {
+            throw new EmptyFieldException();
+        }
         BattleMech editedMech = new BattleMech(n,t,c,e);
         BattleTechIO.editLine(editedMech);
         this.dispose();
+        }
+        catch (Exception e )
+        {
+          JOptionPane.showMessageDialog(this,"Please fill out all fields with the proper data types");  
+        }
+        
+        
+        
     }//GEN-LAST:event_btnConfirmEditActionPerformed
+
+    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnCancelActionPerformed
 
     
     /**
@@ -214,13 +239,21 @@ public class ConfirmEditFrame extends javax.swing.JFrame {
      */
     public void initFields()
     {
+        try
+        {
         BattleMech initMech = BattleTechIO.readLine(tst);
         this.txtName.setText(initMech.getName());
         this.inputName.setText(initMech.getName());
         this.txtClass.setText(initMech.getClassName());
         this.txtEra.setText(Integer.toString(initMech.getEra()));
         this.txtTonnage.setText(Integer.toString(initMech.getTonnage()));
-        
+        }
+        catch (LineNotFoundException e)
+        {
+            JOptionPane.showMessageDialog(this, "No such record found");
+            this.dispose();
+        }
+
     }
     
     /**
