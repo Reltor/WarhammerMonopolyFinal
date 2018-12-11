@@ -7,6 +7,7 @@ package View;
 
 import Controller.BattleMech;
 import Controller.BattleTechIO;
+import java.util.ArrayList;
 import java.util.Vector;
 import javax.swing.JFrame;
 
@@ -77,7 +78,7 @@ public class ViewAllFrame extends javax.swing.JFrame {
         String output = "";
         String line;
         BattleMech mech;
-        Vector allData = BattleTechIO.readAll();
+        ArrayList<BattleMech> allData = BattleTechIO.readAll();
         for (int i = 0;i<allData.size(); ++i)
         {
             mech = (BattleMech) allData.get(i);

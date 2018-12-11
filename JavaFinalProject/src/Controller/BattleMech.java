@@ -81,9 +81,7 @@ public class BattleMech {
     public void setEra(int era) {
         this.era = era;
     }
-    
-   
-    
+
     private String name; 
     private int tonnage;
     private String className;
