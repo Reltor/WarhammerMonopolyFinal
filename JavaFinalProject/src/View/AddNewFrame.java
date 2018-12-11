@@ -152,32 +152,57 @@ public class AddNewFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * useless method, cant delete
+     * @param evt 
+     */
     private void txtEraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEraActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtEraActionPerformed
-
+    /**
+     * on press of Cancel button, closes the frame
+     * @param evt 
+     */
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnCancelActionPerformed
-
+    /**
+     * on press of Add button, adds the record to the file
+     * @param evt 
+     */
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        try {
-        String n = txtName.getText();
-        int t = Integer.parseInt(txtTonnage.getText());
-        String c  = txtClass.getText();
-        int e  = Integer.parseInt(txtEra.getText());
-        if (txtName.getText().isEmpty() || txtClass.getText().isEmpty())
+        try 
         {
-            throw new EmptyFieldException();
+            //read the data from the text fields
+            String n = txtName.getText();
+            int t = Integer.parseInt(txtTonnage.getText());
+            String c  = txtClass.getText();
+            int e  = Integer.parseInt(txtEra.getText());
+            //check if any of the fields are empty (that wouldn't already have thrown an error)
+            if (txtName.getText().isEmpty() || txtClass.getText().isEmpty())
+            {
+                throw new EmptyFieldException();
+            }
+            //confirm add record
+            try 
+            {
+                //check if the record already exists
+                BattleTechIO.readLine(n);
+                JOptionPane.showMessageDialog(this, "A record with this name already exists");
+            }
+            catch (LineNotFoundException er)
+            {
+                //show confirmation if the record does not already exist
+                int addYN =  JOptionPane.showConfirmDialog(this, "PlaceHolder");
+                if (addYN == JOptionPane.YES_OPTION)
+                {
+                    BattleMech bm = new BattleMech(n,t,c,e);
+                    BattleTechIO.add(bm);
+                }
+            }
         }
-        int addYN =  JOptionPane.showConfirmDialog(this, "PlaceHolder");
-        if (addYN == JOptionPane.YES_OPTION)
-        {
-            BattleMech bm = new BattleMech(n,t,c,e);
-            BattleTechIO.add(bm);
-        }
-        }
-        catch (Exception e)
+        
+        catch (Exception er)
         {
             JOptionPane.showMessageDialog(this, "Please fill out all fields with valid data");
         }

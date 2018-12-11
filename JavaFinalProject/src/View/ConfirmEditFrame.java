@@ -78,9 +78,8 @@ public class ConfirmEditFrame extends javax.swing.JFrame {
         lblEra.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblEra.setText("Era");
 
-        inputTonnage.setText("1000");
+        inputName.setEditable(false);
 
-        inputEra.setText("2018");
         inputEra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inputEraActionPerformed(evt);
@@ -195,27 +194,39 @@ public class ConfirmEditFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * useless auto generated method
+     * @param evt 
+     */
     private void txtEraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEraActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtEraActionPerformed
-
+    /**
+     * useless auto generated method
+     * @param evt 
+     */
     private void inputEraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputEraActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_inputEraActionPerformed
-
+    /**
+     * On press of edit button, confirms and edits record
+     * @param evt 
+     */
     private void btnConfirmEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmEditActionPerformed
         
         try 
         {
+        //gets new values from input fields
         String n = inputName.getText();
         int t = Integer.parseInt(inputTonnage.getText());
         String c = inputClass.getText();
         int e = Integer.parseInt(inputEra.getText());
+        //checks to make sure nothing is empty
         if (inputName.getText().isEmpty() || inputClass.getText().isEmpty())
         {
             throw new EmptyFieldException();
         }
+        //construct the new mech and edit it
         BattleMech editedMech = new BattleMech(n,t,c,e);
         BattleTechIO.editLine(editedMech);
         this.dispose();
@@ -239,6 +250,7 @@ public class ConfirmEditFrame extends javax.swing.JFrame {
      */
     public void initFields()
     {
+        //read in the data from the selected mech, and populate the appropriate fields
         try
         {
         BattleMech initMech = BattleTechIO.readLine(tst);

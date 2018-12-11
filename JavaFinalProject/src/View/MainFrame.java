@@ -222,11 +222,16 @@ public class MainFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * 
+     * On press of Search Button, searches for and returns the appropriate record 
+     */
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         try
         {
+        //read the data
         BattleMech readMech = BattleTechIO.readLine(txtName.getText());
+        //write it in the fields
         this.txtName.setText(readMech.getName());
         this.txtClass.setText(readMech.getClassName());
         this.txtEra.setText(Integer.toString(readMech.getEra()));
@@ -242,41 +247,73 @@ public class MainFrame extends javax.swing.JFrame {
                 
         
     }//GEN-LAST:event_btnSearchActionPerformed
-
+    /**
+     * 
+     * auto generated method, is useless 
+     */
     private void txtEraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEraActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtEraActionPerformed
-
+    /**
+     * 
+     * On press of View All button, opens up a new frame to display all records on file
+     */
     private void btnViewAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewAllActionPerformed
         ViewAllFrame vw = new ViewAllFrame(this);
         vw.setVisible(rootPaneCheckingEnabled);
     }//GEN-LAST:event_btnViewAllActionPerformed
-
+    /**
+     * 
+     * On press of Edit button, takes the value in the name field and opens a new Edit window with that record 
+     */
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
         try
         {
+            //check if the field is empty
             if (txtName.getText().isEmpty())
             {
+                //error if it is 
                 throw new EmptyFieldException();
             }
-            ConfirmEditFrame ce = new ConfirmEditFrame(txtName.getText());
-            ce.setVisible(rootPaneCheckingEnabled);
+            else
+            {
+                try
+                {
+                  BattleTechIO.readLine(txtName.getText());
+                   //open a new Frame to edit the record
+                  ConfirmEditFrame ce = new ConfirmEditFrame(txtName.getText());
+                  ce.setVisible(rootPaneCheckingEnabled);
+                }
+                catch (LineNotFoundException e)
+                {
+                    JOptionPane.showMessageDialog(this,"No Such Record Found");
+                }
+                
+                
+            }
+           
         } catch (EmptyFieldException e)
         {
             JOptionPane.showMessageDialog(this, "You cannot leave the name field empty");
         }
         
     }//GEN-LAST:event_btnEditActionPerformed
-
+     /**
+      * 
+      * On press of delete button, attempts to delete the record indicated by the name field 
+      */
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         try
         {
+            //read in the record they want to delete, to make sure it exists
             BattleMech deletedMech = BattleTechIO.readLine(this.txtName.getText());
+            //confirm deletion
             String confirmString = "Are you sure you want to delete this record: \n" +
-                                   "test";
+                                   txtName.getText();
             int deleteYN = JOptionPane.showConfirmDialog(this, confirmString);
             if(deleteYN == JOptionPane.YES_OPTION)
             {
+                //delete
                 BattleTechIO.deleteLine(deletedMech.getName());
             }
         }
@@ -285,8 +322,12 @@ public class MainFrame extends javax.swing.JFrame {
            JOptionPane.showMessageDialog(this, "No Record with this Name has been found");
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
-
+    /**
+     * 
+     * On press of Clear button, empties all text fields
+     */
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
+        //make all fields empty strings
         this.txtClass.setText("");
         this.txtDisplayArea.setText("");
         this.txtEra.setText("");
@@ -294,7 +335,12 @@ public class MainFrame extends javax.swing.JFrame {
         this.txtTonnage.setText("");
     }//GEN-LAST:event_btnClearActionPerformed
 
+       /**
+        * 
+        * Opens a window to add a new record
+        */
     private void btnAddNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddNewActionPerformed
+        //open a new frame
         AddNewFrame newFrame = new AddNewFrame();
         newFrame.setVisible(rootPaneCheckingEnabled);
     }//GEN-LAST:event_btnAddNewActionPerformed
