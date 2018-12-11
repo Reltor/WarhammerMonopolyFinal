@@ -223,7 +223,7 @@ public class MainFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     /**
-     * 
+     * @param evt
      * On press of Search Button, searches for and returns the appropriate record 
      */
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
@@ -248,14 +248,14 @@ public class MainFrame extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnSearchActionPerformed
     /**
-     * 
+     * @param evt
      * auto generated method, is useless 
      */
     private void txtEraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEraActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtEraActionPerformed
     /**
-     * 
+     * @param evt
      * On press of View All button, opens up a new frame to display all records on file
      */
     private void btnViewAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewAllActionPerformed
@@ -263,7 +263,7 @@ public class MainFrame extends javax.swing.JFrame {
         vw.setVisible(rootPaneCheckingEnabled);
     }//GEN-LAST:event_btnViewAllActionPerformed
     /**
-     * 
+     * @param evt
      * On press of Edit button, takes the value in the name field and opens a new Edit window with that record 
      */
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
@@ -299,7 +299,7 @@ public class MainFrame extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnEditActionPerformed
      /**
-      * 
+      * @param evt
       * On press of delete button, attempts to delete the record indicated by the name field 
       */
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
@@ -323,7 +323,7 @@ public class MainFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
     /**
-     * 
+     * @param evt
      * On press of Clear button, empties all text fields
      */
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
@@ -336,7 +336,7 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnClearActionPerformed
 
        /**
-        * 
+        * @param evt
         * Opens a window to add a new record
         */
     private void btnAddNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddNewActionPerformed

@@ -193,12 +193,13 @@ public class AddNewFrame extends javax.swing.JFrame {
             catch (LineNotFoundException er)
             {
                 //show confirmation if the record does not already exist
-                int addYN =  JOptionPane.showConfirmDialog(this, "PlaceHolder");
+                int addYN =  JOptionPane.showConfirmDialog(this, "Add this Data?");
                 if (addYN == JOptionPane.YES_OPTION)
                 {
                     BattleMech bm = new BattleMech(n,t,c,e);
                     BattleTechIO.add(bm);
                 }
+                this.dispose();
             }
         }
         

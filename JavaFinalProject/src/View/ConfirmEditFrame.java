@@ -16,10 +16,11 @@ public class ConfirmEditFrame extends javax.swing.JFrame {
 
     /**
      * Creates new form ConfirmEditFrame
+     * @param name a string
      */
-    public ConfirmEditFrame(String tst) {
+    public ConfirmEditFrame(String name) {
         initComponents();
-        this.tst = tst;
+        this.name = name;
         initFields();
         
     }
@@ -246,14 +247,15 @@ public class ConfirmEditFrame extends javax.swing.JFrame {
 
     
     /**
-     * @param String recordName
+     * Sets up all the fields with the original data of the record
+     * 
      */
     public void initFields()
     {
         //read in the data from the selected mech, and populate the appropriate fields
         try
         {
-        BattleMech initMech = BattleTechIO.readLine(tst);
+        BattleMech initMech = BattleTechIO.readLine(name);
         this.txtName.setText(initMech.getName());
         this.inputName.setText(initMech.getName());
         this.txtClass.setText(initMech.getClassName());
@@ -298,12 +300,12 @@ public class ConfirmEditFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ConfirmEditFrame(tst).setVisible(true);
+                new ConfirmEditFrame(name).setVisible(true);
                 
             }
         });
     }
-    private static String tst;
+    private static String name;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancel;

@@ -19,6 +19,7 @@ public class ViewAllFrame extends javax.swing.JFrame {
 
     /**
      * Creates new form ViewAllFrame
+     * @param main the main
      */
     public ViewAllFrame(JFrame main) {
         initComponents();
@@ -72,7 +73,9 @@ public class ViewAllFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * initializes the display based on read in data
+     */
     private void initFields()
     {
         String output = "";
@@ -88,7 +91,7 @@ public class ViewAllFrame extends javax.swing.JFrame {
         this.jTextArea1.setText(output);
     }
     /**
-     * @param args the command line arguments
+     * 
      */
    
 
