@@ -1,0 +1,82 @@
+Rolling Double
+
+do
+	int i = 0
+
+	roll dice
+	move character
+	++i
+	if i >= 3
+		go to jail
+		die 1 != die 2
+while die 1 == die 2
+
+Building Houses
+
+Pice based on property
+	rent goes up with each house/hotel
+
+if number of houses on one property exceeds other properties of same type, does not show up on list of buildable houses/hotels
+
+Basic Property View
+
+Set Name:
+
+[Property name	]
+|current rent:	|
+-----------------
+[Property name	]
+|current rent:	|
+-----------------
+[Property name	]
+|current rent:	|
+-----------------
+
+Detailed Property View
+
+[Property name	]
+|set	      	|
+|rent	      	|
+|house cost   	|
+|hotel cost   	|
+|	      	|
+|is morgaged  	|
+-----------------
+
+
+[Skaven Blight	]
+|set:	      	|
+|    Player   	|
+|cost:        	|
+-----------------
+
+-----------------
+|	      	|
+|   Comunity  	|
+|    Chest    	|
+|		|
+-----------------
+
+-----------------
+|     Free     	|
+|    Player   	|
+|    Parking   	|
+-----------------
+
+-----------------
+|     Jail     	|
+|    Player   	|
+|       	|
+-----------------
+
+-----------------
+|    <- GO      |
+|  1 2 3 4 5 6  |
+|       	|
+-----------------
+
+-----------------
+|     GO TO    	|
+|    Player   	|
+|     Jail!   	|
+-----------------
