@@ -93,6 +93,11 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         btnAddNew.setText("Add New");
+        btnAddNew.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddNewActionPerformed(evt);
+            }
+        });
 
         lblName.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblName.setText("Name");
@@ -219,7 +224,8 @@ public class MainFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
-        try{
+        try
+        {
         BattleMech readMech = BattleTechIO.readLine(txtName.getText());
         this.txtName.setText(readMech.getName());
         this.txtClass.setText(readMech.getClassName());
@@ -247,8 +253,19 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnViewAllActionPerformed
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
-        ConfirmEditFrame ce = new ConfirmEditFrame("test");
-        ce.setVisible(rootPaneCheckingEnabled);
+        try
+        {
+            if (txtName.getText().isEmpty())
+            {
+                throw new EmptyFieldException();
+            }
+            ConfirmEditFrame ce = new ConfirmEditFrame(txtName.getText());
+            ce.setVisible(rootPaneCheckingEnabled);
+        } catch (EmptyFieldException e)
+        {
+            JOptionPane.showMessageDialog(this, "You cannot leave the name field empty");
+        }
+        
     }//GEN-LAST:event_btnEditActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
@@ -276,6 +293,11 @@ public class MainFrame extends javax.swing.JFrame {
         this.txtName.setText("");
         this.txtTonnage.setText("");
     }//GEN-LAST:event_btnClearActionPerformed
+
+    private void btnAddNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddNewActionPerformed
+        AddNewFrame newFrame = new AddNewFrame();
+        newFrame.setVisible(rootPaneCheckingEnabled);
+    }//GEN-LAST:event_btnAddNewActionPerformed
 
     /**
      * @param args the command line arguments
