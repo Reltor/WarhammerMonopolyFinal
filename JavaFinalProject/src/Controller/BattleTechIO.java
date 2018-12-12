@@ -28,7 +28,7 @@ public class BattleTechIO {
     /**
      * This function takes everything from the file and returns it as a list of 
      * mechs to be displayed it in a text box.
-     * @return 
+     * @return ArrayList
      */
     public static ArrayList readAll()
     {
@@ -74,7 +74,7 @@ public class BattleTechIO {
  * This function takes a mech's name, reads the database, searches through the
  * database, and returns the mech that was searched for.
  * @param mechName
- * @return
+ * @return BattleMech
  * @throws LineNotFoundException 
  */
     public static BattleMech readLine(String mechName) throws LineNotFoundException     //This is simmilar to the first function in how it is set up
@@ -343,7 +343,7 @@ public class BattleTechIO {
     /**
      * This function checks data validation for integers
      * @param x
-     * @return 
+     * @return boolean
      */
     public static boolean checkInt(JTextField x)
     {
