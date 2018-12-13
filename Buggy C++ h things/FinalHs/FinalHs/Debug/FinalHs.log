@@ -1,0 +1,200 @@
+﻿  Game.cpp
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(23): error C2061: syntax error: identifier 'Player'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(24): error C2143: syntax error: missing ';' before '*'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(24): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(24): error C2238: unexpected token(s) preceding ';'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(31): error C2143: syntax error: missing ';' before '*'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(31): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(31): error C2238: unexpected token(s) preceding ';'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(14): error C2011: 'Space': 'class' type redefinition
+  c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(13): note: see declaration of 'Space'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\utilities.h(14): error C2504: 'Space': base class undefined
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.h(16): error C2504: 'Space': base class undefined
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.h(23): error C2143: syntax error: missing ';' before '*'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.h(23): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.h(23): error C2238: unexpected token(s) preceding ';'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.h(24): error C2061: syntax error: identifier 'Player'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.h(35): error C2143: syntax error: missing ';' before '*'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.h(35): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.h(35): error C2238: unexpected token(s) preceding ';'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\gtjtile.h(15): error C2504: 'Space': base class undefined
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\railroad.h(14): error C2504: 'Space': base class undefined
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\game.cpp(37): error C2079: 's' uses undefined class 'Space'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\game.cpp(37): error C2027: use of undefined type 'Space'
+  c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(13): note: see declaration of 'Space'
+  GTJTile.cpp
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(23): error C2061: syntax error: identifier 'Player'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(24): error C2143: syntax error: missing ';' before '*'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(24): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(24): error C2238: unexpected token(s) preceding ';'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(31): error C2143: syntax error: missing ';' before '*'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(31): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(31): error C2238: unexpected token(s) preceding ';'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(14): error C2011: 'Space': 'class' type redefinition
+  c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(13): note: see declaration of 'Space'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\utilities.h(14): error C2504: 'Space': base class undefined
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.h(16): error C2504: 'Space': base class undefined
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.h(23): error C2143: syntax error: missing ';' before '*'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.h(23): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.h(23): error C2238: unexpected token(s) preceding ';'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.h(24): error C2061: syntax error: identifier 'Player'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.h(35): error C2143: syntax error: missing ';' before '*'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.h(35): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.h(35): error C2238: unexpected token(s) preceding ';'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\gtjtile.h(15): error C2504: 'Space': base class undefined
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\gtjtile.cpp(13): error C2039: 'location': is not a member of 'GTJTile'
+  c:\users\zeek3\desktop\c++final\finalhs\finalhs\gtjtile.h(14): note: see declaration of 'GTJTile'
+  Player.cpp
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(23): error C2061: syntax error: identifier 'Player'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(24): error C2143: syntax error: missing ';' before '*'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(24): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(24): error C2238: unexpected token(s) preceding ';'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(31): error C2143: syntax error: missing ';' before '*'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(31): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(31): error C2238: unexpected token(s) preceding ';'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(14): error C2011: 'Space': 'class' type redefinition
+  c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(13): note: see declaration of 'Space'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\utilities.h(14): error C2504: 'Space': base class undefined
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.h(16): error C2504: 'Space': base class undefined
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.h(23): error C2143: syntax error: missing ';' before '*'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.h(23): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.h(23): error C2238: unexpected token(s) preceding ';'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.h(24): error C2061: syntax error: identifier 'Player'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.h(35): error C2143: syntax error: missing ';' before '*'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.h(35): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.h(35): error C2238: unexpected token(s) preceding ';'
+  Properties.cpp
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(23): error C2061: syntax error: identifier 'Player'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(24): error C2143: syntax error: missing ';' before '*'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(24): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(24): error C2238: unexpected token(s) preceding ';'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(31): error C2143: syntax error: missing ';' before '*'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(31): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(31): error C2238: unexpected token(s) preceding ';'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(14): error C2011: 'Space': 'class' type redefinition
+  c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(13): note: see declaration of 'Space'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\utilities.h(14): error C2504: 'Space': base class undefined
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.h(16): error C2504: 'Space': base class undefined
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.h(23): error C2143: syntax error: missing ';' before '*'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.h(23): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.h(23): error C2238: unexpected token(s) preceding ';'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.h(24): error C2061: syntax error: identifier 'Player'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.h(35): error C2143: syntax error: missing ';' before '*'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.h(35): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.h(35): error C2238: unexpected token(s) preceding ';'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.cpp(16): error C2614: 'Properties': illegal member initialization: 'Space' is not a base or member
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.cpp(49): error C2039: 'getOwner': is not a member of 'Properties'
+  c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.h(15): note: see declaration of 'Properties'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.cpp(56): error C2511: 'void Properties::setOwner(Player *)': overloaded member function not found in 'Properties'
+  c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.h(15): note: see declaration of 'Properties'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.cpp(57): error C2065: 'owner': undeclared identifier
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.cpp(71): error C2065: 'name': undeclared identifier
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.cpp(73): error C3867: 'Properties::mort': non-standard syntax; use '&' to create a pointer to member
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.cpp(83): error C2065: 'owner': undeclared identifier
+  RailRoad.cpp
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(23): error C2061: syntax error: identifier 'Player'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(24): error C2143: syntax error: missing ';' before '*'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(24): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(24): error C2238: unexpected token(s) preceding ';'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(31): error C2143: syntax error: missing ';' before '*'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(31): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(31): error C2238: unexpected token(s) preceding ';'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(14): error C2011: 'Space': 'class' type redefinition
+  c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(13): note: see declaration of 'Space'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\utilities.h(14): error C2504: 'Space': base class undefined
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.h(16): error C2504: 'Space': base class undefined
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.h(23): error C2143: syntax error: missing ';' before '*'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.h(23): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.h(23): error C2238: unexpected token(s) preceding ';'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.h(24): error C2061: syntax error: identifier 'Player'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.h(35): error C2143: syntax error: missing ';' before '*'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.h(35): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.h(35): error C2238: unexpected token(s) preceding ';'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\railroad.h(14): error C2504: 'Space': base class undefined
+  Source.cpp
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(23): error C2061: syntax error: identifier 'Player'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(24): error C2143: syntax error: missing ';' before '*'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(24): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(24): error C2238: unexpected token(s) preceding ';'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(31): error C2143: syntax error: missing ';' before '*'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(31): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(31): error C2238: unexpected token(s) preceding ';'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(14): error C2011: 'Space': 'class' type redefinition
+  c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(13): note: see declaration of 'Space'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\utilities.h(14): error C2504: 'Space': base class undefined
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.h(16): error C2504: 'Space': base class undefined
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.h(23): error C2143: syntax error: missing ';' before '*'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.h(23): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.h(23): error C2238: unexpected token(s) preceding ';'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.h(24): error C2061: syntax error: identifier 'Player'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.h(35): error C2143: syntax error: missing ';' before '*'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.h(35): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.h(35): error C2238: unexpected token(s) preceding ';'
+  Space.cpp
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(23): error C2061: syntax error: identifier 'Player'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(24): error C2143: syntax error: missing ';' before '*'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(24): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(24): error C2238: unexpected token(s) preceding ';'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(31): error C2143: syntax error: missing ';' before '*'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(31): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(31): error C2238: unexpected token(s) preceding ';'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(14): error C2011: 'Space': 'class' type redefinition
+  c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(13): note: see declaration of 'Space'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\utilities.h(14): error C2504: 'Space': base class undefined
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.h(16): error C2504: 'Space': base class undefined
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.h(23): error C2143: syntax error: missing ';' before '*'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.h(23): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.h(23): error C2238: unexpected token(s) preceding ';'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.h(24): error C2061: syntax error: identifier 'Player'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.h(35): error C2143: syntax error: missing ';' before '*'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.h(35): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.h(35): error C2238: unexpected token(s) preceding ';'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.cpp(12): error C2027: use of undefined type 'Space'
+  c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(13): note: see declaration of 'Space'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.cpp(13): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.cpp(14): warning C4508: '{ctor}': function should return a value; 'void' return type assumed
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.cpp(16): error C2027: use of undefined type 'Space'
+  c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(13): note: see declaration of 'Space'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.cpp(18): error C2065: 'name': undeclared identifier
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.cpp(21): error C2027: use of undefined type 'Space'
+  c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(13): note: see declaration of 'Space'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.cpp(23): error C2065: 'location': undeclared identifier
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.cpp(26): error C2027: use of undefined type 'Space'
+  c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(13): note: see declaration of 'Space'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.cpp(31): error C2027: use of undefined type 'Space'
+  c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(13): note: see declaration of 'Space'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.cpp(36): error C2027: use of undefined type 'Space'
+  c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(13): note: see declaration of 'Space'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.cpp(41): error C2027: use of undefined type 'Space'
+  c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(13): note: see declaration of 'Space'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.cpp(43): error C2065: 'owned': undeclared identifier
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.cpp(46): error C2027: use of undefined type 'Space'
+  c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(13): note: see declaration of 'Space'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.cpp(48): error C2065: 'owner': undeclared identifier
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.cpp(49): error C2065: 'owned': undeclared identifier
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.cpp(52): error C2027: use of undefined type 'Space'
+  c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(13): note: see declaration of 'Space'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.cpp(54): error C2065: 'owner': undeclared identifier
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.cpp(57): error C2027: use of undefined type 'Space'
+  c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(13): note: see declaration of 'Space'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.cpp(59): error C2065: 'rent': undeclared identifier
+  Utilities.cpp
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(23): error C2061: syntax error: identifier 'Player'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(24): error C2143: syntax error: missing ';' before '*'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(24): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(24): error C2238: unexpected token(s) preceding ';'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(31): error C2143: syntax error: missing ';' before '*'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(31): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(31): error C2238: unexpected token(s) preceding ';'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(14): error C2011: 'Space': 'class' type redefinition
+  c:\users\zeek3\desktop\c++final\finalhs\finalhs\space.h(13): note: see declaration of 'Space'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\utilities.h(14): error C2504: 'Space': base class undefined
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.h(16): error C2504: 'Space': base class undefined
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.h(23): error C2143: syntax error: missing ';' before '*'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.h(23): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.h(23): error C2238: unexpected token(s) preceding ';'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.h(24): error C2061: syntax error: identifier 'Player'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.h(35): error C2143: syntax error: missing ';' before '*'
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.h(35): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\zeek3\desktop\c++final\finalhs\finalhs\properties.h(35): error C2238: unexpected token(s) preceding ';'
+  Generating Code...
