@@ -30,3 +30,9 @@ void Functions::setOwnerShip(Player & p, Space & s)
 {
 	s.setOwner(p.getName());
 }
+
+void Functions::buyHouse(Player & p, Properties & s)
+{
+	s.buyHouse();
+	p.payRent(s.getHC());
+}
