@@ -1,0 +1,8 @@
+﻿  Functions.cpp
+  Game.cpp
+e:\testfinal\testfinal\game.cpp(1): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  Player.cpp
+  Source.cpp
+  Space.cpp
+  Generating Code...
+  TestFinal.vcxproj -> E:\TestFinal\Debug\TestFinal.exe
