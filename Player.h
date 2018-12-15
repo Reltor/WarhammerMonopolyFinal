@@ -18,9 +18,12 @@ public:
 	void setLocation(int);
 	void setMoney(int);
 	void payRent(int);
-	void addMoney(int);
+	void getMoney(int);
 	std::string getName();
-	int getMoney();
+	int showMoney();
+	void setProperties(Space*);
+	const std::vector<Space*> getProperties();
+	void tradeProperties(Space*, int);
 
 
 protected:
@@ -28,7 +31,6 @@ protected:
 	int remain;
 	int location;
 	std::string name;
-	void setProperties(Space*);
 	std::vector<Space*> ownedProperties;
 };
 

@@ -9,6 +9,8 @@
 #include "Player.h"
 //#include "Properties.h"
 
+using namespace std;
+
 Player::Player()
 	:money{ 100 }, remain{ 1 }, location{ 2 }, name{ "john" } {}
 
@@ -27,7 +29,7 @@ void Player::payRent(int r)
 	money = money - r;
 }
 
-void Player::addMoney(int g)
+void Player::getMoney(int g)
 {
 	money = money + g;
 }
@@ -37,7 +39,7 @@ std::string Player::getName()
 	return name;
 }
 
-int Player::getMoney()
+int Player::showMoney()
 {
 	return money;
 }
@@ -45,4 +47,14 @@ int Player::getMoney()
 void Player::setProperties(Space* property)
 {
 	ownedProperties.push_back(property);
+}
+
+const vector<Space*> Player::getProperties()
+{
+	return ownedProperties;
+}
+
+void Player::tradeProperties(Space * s, int position)
+{
+	ownedProperties[position] = s;
 }
