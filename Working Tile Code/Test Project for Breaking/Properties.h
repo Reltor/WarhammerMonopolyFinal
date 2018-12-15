@@ -13,9 +13,10 @@
 class Properties : public Space
 {
 public:
+	Properties(std::string n);
 	Properties();
 	int getPrice();
-	int getRent();
+	int getRent(int);
 	int mort();
 	void buyHouse();
 	int getHC();

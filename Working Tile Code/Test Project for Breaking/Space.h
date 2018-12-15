@@ -13,15 +13,19 @@ class Space
 {
 public:
 	Space();
+	Space(std::string n);
 	Space(std::string, std::string, int, int, int, bool, int, bool);
 	std::string getName();
 	int getLocation();
 	virtual int mort();
 	virtual int getPrice();
-	virtual int getRent();
+	virtual int getRent(int);
 	bool getOwned();
 	void setOwner(std::string);
 	std::string getOwner();
+	std::string getMortPrint();
+
+	bool getMort();
 
 
 

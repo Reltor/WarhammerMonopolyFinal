@@ -14,6 +14,10 @@ Space::Space()
 	:name{ "JavaBeBetta" }, abv{ "JBB" }, location{ 2 }, houses{ 0 }, rent{ 100 }, mortgage{ false }, price{ 10 }, owned{ false }
 {
 }
+Space::Space(string n)
+	: name{ n }, abv{ "JBB" }, location{ 2 }, houses{ 0 }, rent{ 100 }, mortgage{ false }, price{ 10 }, owned{ false }
+{
+}
 
 Space::Space(string n,string a, int loc, int house, int ren, bool mort, int pri, bool own)
 	:name{ n }, abv{ a }, location{ loc }, houses{ house }, rent{ ren }, mortgage{ mort }, price{ pri }, owned{ own }
@@ -40,7 +44,7 @@ int Space::getPrice()
 	return price;
 }
 
-int Space::getRent()
+int Space::getRent(int dieRoll)
 {
 	return rent;
 }
@@ -60,6 +64,23 @@ void Space::setOwner(std::string p)
 string Space::getOwner()
 {
 	return owner;
+}
+
+string Space::getMortPrint()
+{
+	if (mortgage)
+	{
+		return "yes";
+	}
+	else
+	{
+		return "no";
+	}
+}
+
+bool Space::getMort()
+{
+	return mortgage;
 }
 
 void Space::calculateRent(int dice)

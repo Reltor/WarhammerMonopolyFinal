@@ -17,7 +17,7 @@ RailRoads::RailRoads(string n, string a, int loc, int ao, bool mort, int pri, bo
 	Space();
 }
 
-int RailRoads::getRent()
+int RailRoads::getRent(int rollDie)
 {
 	return rent[numOwned];
 }

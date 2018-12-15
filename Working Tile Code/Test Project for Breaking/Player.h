@@ -22,6 +22,7 @@ public:
 	std::string getName();
 	int showMoney();
 	void setProperties(Space*);
+	const std::vector<Space*> getProperties();
 
 
 protected:

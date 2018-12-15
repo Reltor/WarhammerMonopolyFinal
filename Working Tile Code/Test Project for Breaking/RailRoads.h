@@ -13,7 +13,7 @@ class RailRoads : public Space
 {
 public:
 	RailRoads(std::string n, std::string a, int loc, int ao, bool mort, int pri, bool own);
-	int getRent();
+	int getRent(int);
 	void buyRR();
 	void setRent(std::array<int, 4> ren);
 

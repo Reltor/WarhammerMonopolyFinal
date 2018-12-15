@@ -17,11 +17,11 @@
 class Functions
 {
 public:
-	static void payRent(Player& p, Space& s);
+	static void payRent(Player& p, Space& s, int dieRoll);
 	static void setOwnerShip(Player& p, Space& s);
 	static void buyHouse(Player& p, Properties& s);
 	static void buyProperty(Player& p, Properties& s);
 	static void buyRR(Player & p, RailRoads & s);
 	static void buyUtilities(Player& p, Utilities& s);
-
+	static void trade(Player& p, Player& t);
 };

@@ -12,10 +12,15 @@
 
 using namespace std;
 
-Properties::Properties()// : Space()
-	:rent{ 10,20,40,60,100 }, houseCost{ 10 }, houses{ 0 }
+Properties::Properties(string n)// : Space()
+	:rent { 10, 20, 40, 60, 100 }, houseCost{ 10 }, houses{ 0 }
 {
+	Space();
+	name = n;
+}
 
+Properties::Properties()
+{
 }
 
 int Properties::getPrice()
@@ -23,7 +28,7 @@ int Properties::getPrice()
 	return price;
 }
 
-int Properties::getRent()
+int Properties::getRent(int dieRoll)
 {
 	return rent[houses];
 }
