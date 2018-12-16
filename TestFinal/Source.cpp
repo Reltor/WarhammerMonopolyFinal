@@ -25,14 +25,38 @@ int main()
 		cin >> numPlayers;
 	}
 	string playerName;
+	vector<string> playerNames(0);
 	Game newGame = Game(numPlayers);
+	
 	for (int i = 0; i < numPlayers; ++i)
 	{
-		cout << "Please give the name for Player " << i << ":";
-		cin >> playerName;
-		Player* newPlayer = newGame.getPlayer(i);
-		newPlayer->setName(playerName);
+		bool nameFree = false;
+		while (!nameFree)
+		{
+				cout << "Please give the name for Player " << i << ":";
+				cin >> playerName;
+				int sameNameCounter = 0;
+				for (int i = 0; i < playerNames.size(); ++i)
+				{
+					if (playerNames[i] == playerName)
+					{
+						++sameNameCounter;
+					}
+					else
+					{
 
+					}
+				}
+				if (sameNameCounter <= 0)
+				{
+					nameFree = true;
+					Player* newPlayer = newGame.getPlayer(i);
+					newPlayer->setName(playerName);
+					playerNames.push_back(playerName);
+					playerName.setIcon(static_cast<string>(i))
+				}
+			}
+		
 	}
 	
 	newGame.display(1);
@@ -128,9 +152,10 @@ int main()
 
 					newGame.display(i);
 				}
-				if (curPlayer->showMoney() <= 0 && curPlayer->allMortgaged())
+				if (curPlayer->netWorth() <= 0 && curPlayer->allMortgaged() )
 				{
 					curPlayer->setState(static_cast<int>(PlayerState::LOST));
+					cout << curPlayer->getName() << " Lost.";
 				}
 				else
 				{

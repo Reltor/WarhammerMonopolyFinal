@@ -73,8 +73,11 @@ void Game::display(int playerNum)
 	Coord playerCoord;
 	for (Player p: this->playerList)
 	{
-		playerCoord = translateLoc(p.getLoc());
-		playerArray[playerCoord.getY()][playerCoord.getX()] += "x";
+		if (p.getState() == 1)
+		{
+			playerCoord = translateLoc(p.getLoc());
+			playerArray[playerCoord.getY()][playerCoord.getX()] += "x";
+		}
 
 
 	}
@@ -185,10 +188,14 @@ void Game::move(int playerNum, int numSpaces, bool passGo)
 		{
 			//do nothing
 		}
+		cout << "You Passed Go" << endl;
 		system("pause");
 
 	}
-
+	else if (p->getLoc() + numSpaces < 0)
+	{
+		newLoc = p->getLoc() + numSpaces + 40;
+	}
 	else
 	{
 		newLoc = p->getLoc() + numSpaces;
@@ -199,8 +206,8 @@ void Game::move(int playerNum, int numSpaces, bool passGo)
 
 	Space* curSpace = boardArray[newLoc];
 	string spaceType = curSpace->getSpaceType();
-	cout << spaceType;
-	system("pause");
+	display(playerNum);
+	//cout << spaceType;  //debug statement
 	if (spaceType == "Empty")
 	{
 		if (curSpace->getName() == "Go To Jail")
@@ -217,7 +224,7 @@ void Game::move(int playerNum, int numSpaces, bool passGo)
 	{
 		if (curSpace->getOwned() == false)
 		{
-			cout << "Buying Space";
+			cout << "Landed On Space: " << curSpace->getName() << endl;
 			system("pause");
 			buyProperty(p,curSpace);
 		}
@@ -252,12 +259,12 @@ void Game::move(int playerNum, int numSpaces, bool passGo)
 		else if (effect == CardEffects::MOVE)
 		{
 			cout << "You were moved " << magnitude << " spaces" << endl;
-			move(p, magnitude);
+			move(playerNum, magnitude);
 		}
 		else if (effect == CardEffects::MOVE_NO_GO)
 		{
 			cout << "You were moved " << magnitude << " spaces and did not pass go." << endl;
-			move(p, magnitude, false);
+			move(playerNum, magnitude, false);
 		}
 		else if (effect == CardEffects::JAIL)
 		{
@@ -272,109 +279,6 @@ void Game::move(int playerNum, int numSpaces, bool passGo)
 		cout << "reeeeee";
 		system("pause");
 	}
-}
-
-void Game::move(Player* p, int numSpaces, bool passGo)
-{
-	int newLoc;
-	if (p->getLoc() + numSpaces > 39)
-	{
-		newLoc = p->getLoc() + numSpaces - 40;
-
-
-		if (passGo == true)
-		{
-			p->addMoney(200);
-		}
-		else
-		{
-			//do nothing
-		}
-		system("pause");
-
-	}
-
-	else
-	{
-		newLoc = p->getLoc() + numSpaces;
-	}
-	p->setLoc(newLoc);
-
-	//handle all the fuckaroo
-
-	Space* curSpace = boardArray[newLoc];
-	string spaceType = curSpace->getSpaceType();
-	if (spaceType == "Empty")
-	{
-		if (curSpace->getName() == "Go To Jail")
-		{
-			p->jail();
-			p->resetDoubles();
-		}
-		else if (curSpace->getName() == "Go")
-		{
-			p->addMoney(200);
-		}
-	}
-	else if (spaceType == "Railroad" || spaceType == "Property" || spaceType == "Utilities")
-	{
-		if (curSpace->getOwned() == false)
-		{
-			cout << "Buying Space";
-			system("pause");
-			buyProperty(p, curSpace);
-		}
-		else if (spaceType == "Railroad" && curSpace->getOwner() == p->getName())
-		{
-			//move to another railroad or nein?
-
-		}
-		else
-		{
-			cout << "something went wrong";
-			system("pause");
-			//chargeRent
-		}
-	}
-	else if (spaceType == "Tax")
-	{
-		p->addMoney(-200);
-	}
-
-	else if (spaceType == "Chance" || spaceType == "Community")
-	{
-		Card drawnCard = Card();
-		CardEffects effect = drawnCard.getEffect();
-		int magnitude = drawnCard.getMagnitude();
-		if (effect == CardEffects::CHANGE_MONEY)
-		{
-			cout << "Your Money was Changed by $" << magnitude << endl;
-			system("pause");
-			p->addMoney(magnitude);
-		}
-		else if (effect == CardEffects::MOVE)
-		{
-			cout << "You were moved " << magnitude << " spaces" << endl;
-			move(p, magnitude);
-		}
-		else if (effect == CardEffects::MOVE_NO_GO)
-		{
-			cout << "You were moved " << magnitude << " spaces and did not pass go." << endl;
-			move(p, magnitude, false);
-		}
-		else if (effect == CardEffects::JAIL)
-		{
-			cout << "You were jailed" << endl;
-			p->jail();
-			p->resetDoubles();
-		}
-
-	}
-	else
-	{
-		cout << "reeeeee";
-	}
-
 }
 
 
@@ -514,10 +418,19 @@ void Game::cheatMenu(Player* p)
 		int moveLen = 0;
 		cout << "Move how many spaces? ";
 		cin >> moveLen;
-		move(p, moveLen);
+		int playerNum = -1;
+		for (int i = 0; i < playerList.size(); ++i)
+		{
+			cout << playerList.size();
+			if (&playerList[i] == p)
+			{
+				playerNum = i;
+			}
+		}
+		move(playerNum, moveLen);
 		cout << "Player now at space: " << p->getLoc() + 1;
 	}
-	else if (userChoice = 4)
+	else if (userChoice == 4)
 	{
 		for (int i = 0; i < numPlayers; ++i)
 		{
@@ -547,7 +460,7 @@ void Game::cheatMenu(Player* p)
 	else if (userChoice == 8)
 	{
 		vector<Space*> propList = p->getProperties();
-		for (int i = 0; i < sizeof(propList); ++i)
+		for (int i = 0; i < propList.size(); ++i)
 		{
 			propList[i]->unMort();
 		}
@@ -606,7 +519,7 @@ void Game::mortgage(Player* p)
 	int sizeProp = dataCount;
 	if (sizeProp > 0)
 	{
-		for (int i = 0; i < sizeof(propList); ++i)
+		for (int i = 0; i < propList.size(); ++i)
 		{
 			if (propList[i]->getMort() == false)
 			{
@@ -614,7 +527,7 @@ void Game::mortgage(Player* p)
 			}
 		}
 	}
-	if (sizeof(unMortgagedPropList) == 0 || dataCount == 0)
+	if (unMortgagedPropList.size() == 0 || dataCount == 0)
 	{
 		cout << endl;
 		cout << "No Un-Mortgaged Properties Available";
@@ -625,13 +538,13 @@ void Game::mortgage(Player* p)
 		bool done = false;
 		while (!done)
 		{
-			for (int i = 0; i < sizeof(unMortgagedPropList); ++i)
+			for (int i = 0; i < unMortgagedPropList.size(); ++i)
 			{
 				cout << "(" << i << ")" << unMortgagedPropList[i]->getName() << endl;
 			}
 			int mortgageNum = -1;
 			cout << "Choose A Property to Mortgage, or enter -1 to end";
-			if (mortgageNum > -1 && mortgageNum < sizeof(unMortgagedPropList))
+			if (mortgageNum > -1 && mortgageNum < unMortgagedPropList.size())
 			{
 				p->addMoney(unMortgagedPropList[mortgageNum]->mort());
 				unMortgagedPropList.erase(unMortgagedPropList.begin() + mortgageNum);
@@ -681,12 +594,14 @@ void Game::buyProperty(Player* p, Space* s)
 		vector<unsigned int> bids(numPlayers);
 		for (int i = 0; i < numPlayers; ++i)
 		{
+			bids[i] = this->getPlayer(i)->showMoney() + 10;
 			if (this->getPlayer(i)->getState() == 1)
 			{
 				curBidder = this->getPlayer(i);
-				while (bids[i] <= curBidder->showMoney())
+				while (bids[i] > curBidder->showMoney())
 				{
-					cout << p->getName() << " how much do you bid? ";
+					cout << curBidder->getName() << " how much do you bid? ";
+					cout << "You Have: $" << curBidder->showMoney() << " - ";
 					cin >> bids[i];
 				}
 			}

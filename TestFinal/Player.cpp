@@ -145,3 +145,13 @@ int Player::netWorth()
 	}
 	return net;
 }
+
+string Player::getIcon()
+{
+	return this->icon;
+}
+
+void Player::setIcon(string i)
+{
+	this->icon = i;
+}

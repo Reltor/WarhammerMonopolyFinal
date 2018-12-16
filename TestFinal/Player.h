@@ -38,6 +38,8 @@ public:
 	void setLastRoll(int);
 	int getLastRoll();
 	int netWorth();
+	std::string getIcon();
+	void setIcon(std::string);
 
 private:
 	int money;
@@ -48,6 +50,7 @@ private:
 	int numDoubles = 0;
 	bool jailed = false;
 	int lastRoll;
+	std::string icon;
 };
 
 #endif
