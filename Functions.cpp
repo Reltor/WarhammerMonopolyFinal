@@ -7,6 +7,7 @@
 #include <array>
 #include <vector>
 #include "Functions.h"
+#include <random>
 
 using namespace std;
 
@@ -43,7 +44,7 @@ void Functions::buyProperty(Player & p, Properties & s)
 	setOwnerShip(p, s);
 	p.setProperties(&s);
 }
-void Functions::buyRR(Player & p, RailRoads & s)
+void Functions::buyRR(Player & p, Railroads & s)
 {
 	p.payRent(s.getPrice());
 	setOwnerShip(p, s);
@@ -109,20 +110,19 @@ void Functions::trade(Player & p, Player & t)
 			done = true;
 		}
 	}
-	cout << "you have choosen to trade " << aVec[choice1]->getName() << " for " << bVec[choice2]->getName() << endl << "Are you sure? (Y/N): ";
+	cout << "you have choosen to trade " << aVec[choice1] << " for " << bVec[choice2] << endl << "Are you sure? (Y/N): ";
 	string finalChoice;
-	done = false;
 	while (!done)
 	{
 		cin >> finalChoice;
-		if (finalChoice.compare("Y") == 0 || finalChoice.compare("y") == 0)
-		{
-			finalChoice = "Y";
-			done = true;
-		}
-		else if (finalChoice.compare("N") == 0 || finalChoice.compare("n") == 0)
+		if (finalChoice.compare("N") || finalChoice.compare("n"))
 		{
 			finalChoice = "N";
+			done = true;
+		}
+		else if (finalChoice.compare("Y") || finalChoice.compare("y"))
+		{
+			finalChoice = "Y";
 			done = true;
 		}
 		else
@@ -130,20 +130,21 @@ void Functions::trade(Player & p, Player & t)
 			cout << "That is not a valic input (Y/N):" << endl;
 		}
 	}
-	if (finalChoice.compare("Y") == 0)
+	if (finalChoice.compare("N"))
 	{
-		done = false;
 		cout << "Do you agree to this trade player 2? (Y/N): ";
+		cin >> finalChoice;
 		while (!done)
 		{
 			cin >> finalChoice;
-			if (finalChoice.compare("Y") == 0 || finalChoice.compare("y") == 0)
+			if (finalChoice.compare("N") || finalChoice.compare("n"))
 			{
-				p.tradeProperties(bVec[choice2], choice1);
-				t.tradeProperties(aVec[choice1], choice2);
+				Space* s = aVec[choice1];
+				aVec[choice1] = bVec[choice2];
+				bVec[choice2] = s;
 				done = true;
 			}
-			else if (finalChoice.compare("N") == 0 || finalChoice.compare("n") == 0)
+			else if (finalChoice.compare("Y") || finalChoice.compare("y"))
 			{
 				done = true;
 			}
@@ -153,4 +154,7 @@ void Functions::trade(Player & p, Player & t)
 			}
 		}
 	}
+
+	
 }
+

@@ -7,16 +7,30 @@
 #include <array>
 #include <vector>
 #include "Player.h"
-//#include "Properties.h"
 
 using namespace std;
 
 Player::Player()
-	:money{ 100 }, remain{ 1 }, location{ 2 }, name{ "john" } {}
-
-void Player::setLocation(int l)
+	:money{ 1000 }, remain{ 1 }, loc{ 0 }, name{ "john" } 
 {
-	location = l;
+
+	ownedProperties.resize(0);
+}
+
+Player::Player(string n)
+	: money{ 1000 }, remain{ 1 }, loc{ 0 }, name{ n }
+{
+	ownedProperties.resize(0);
+}
+
+int Player::getLoc()
+{
+	return loc;
+}
+
+void Player::setLoc(int newLoc)
+{
+	this->loc = newLoc;
 }
 
 void Player::setMoney(int m)
@@ -29,7 +43,7 @@ void Player::payRent(int r)
 	money = money - r;
 }
 
-void Player::getMoney(int g)
+void Player::addMoney(int g)
 {
 	money = money + g;
 }
@@ -49,12 +63,85 @@ void Player::setProperties(Space* property)
 	ownedProperties.push_back(property);
 }
 
-const vector<Space*> Player::getProperties()
+
+int Player::getState()
 {
-	return ownedProperties;
+	return this->remain;
 }
 
-void Player::tradeProperties(Space * s, int position)
+
+void Player::setState(int state)
 {
-	ownedProperties[position] = s;
+	this->remain = state;
+}
+
+bool Player::allMortgaged()
+{
+	int ownedTotal = 0;
+	for (Space* x : this->ownedProperties)
+	{
+		ownedTotal += x->mort();
+	}
+	return true;
+}
+
+const vector<Space*> Player::getProperties()
+{
+	return this->ownedProperties;
+}
+
+void Player::setName(string n)
+{
+	this->name = n;
+}
+
+void Player::resetDoubles()
+{
+	this->numDoubles = 0;
+}
+
+void Player::addDouble()
+{
+	this->numDoubles += 1;
+}
+
+int Player::getDoubles()
+{
+	return this->numDoubles;
+}
+
+void Player::jail()
+{
+	this->jailed = true;
+	this->setLoc(10);
+}
+
+void Player::removeFromJail()
+{
+	this->jailed = false;
+}
+
+bool Player::getJailedState()
+{
+	return this->jailed;
+}
+
+void Player::setLastRoll(int roll)
+{
+	this->lastRoll = roll;
+}
+
+int Player::getLastRoll()
+{
+	return this->lastRoll;
+}
+
+int Player::netWorth()
+{
+	int net = this->money;
+	for (Space* s : this->ownedProperties)
+	{
+		net += s->getMort();
+	}
+	return net;
 }
