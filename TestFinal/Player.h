@@ -15,20 +15,38 @@ class Player
 {
 public:
 	Player();
+	Player(std::string);
 	int getLoc();
 	void setLoc(int);
 	void setMoney(int);
 	void payRent(int);
-	void getMoney(int);
+	void addMoney(int);
 	std::string getName();
 	int showMoney();
+	int getState();
+	void setState(int state = 1);
+	bool allMortgaged();
+	void setProperties(Space*);
+	const std::vector<Space*> getProperties();
+	void setName(std::string);
+	void resetDoubles();
+	void addDouble();
+	int getDoubles();
+	void jail();
+	void removeFromJail();
+	bool getJailedState();
+	void setLastRoll(int);
+	int getLastRoll();
+
 private:
 	int money;
 	int remain;
 	int loc;
 	std::string name;
-	void setProperties(Space*);
 	std::vector<Space*> ownedProperties;
+	int numDoubles = 0;
+	bool jailed = false;
+	int lastRoll;
 };
 
 #endif
