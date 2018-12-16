@@ -21,6 +21,7 @@ public:
 	void buyHouse();
 	int getHC();
 	virtual std::array<std::string, 11> getTitleDeed();
+	virtual std::string getSpaceType();
 
 protected:
 	int const price;

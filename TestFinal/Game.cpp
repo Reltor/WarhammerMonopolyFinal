@@ -199,6 +199,8 @@ void Game::move(int playerNum, int numSpaces, bool passGo)
 
 	Space* curSpace = boardArray[newLoc];
 	string spaceType = curSpace->getSpaceType();
+	cout << spaceType;
+	system("pause");
 	if (spaceType == "Empty")
 	{
 		if (curSpace->getName() == "Go To Jail")
@@ -268,6 +270,7 @@ void Game::move(int playerNum, int numSpaces, bool passGo)
 	else
 	{
 		cout << "reeeeee";
+		system("pause");
 	}
 }
 

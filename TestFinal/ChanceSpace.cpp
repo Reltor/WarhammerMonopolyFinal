@@ -13,3 +13,8 @@ array<string,11> ChanceSpace::getTitleDeed()
 	array<string, 11> returnArray{};
 	return returnArray;
 }
+
+string ChanceSpace::getSpaceType()
+{
+	return this->spaceType;
+}

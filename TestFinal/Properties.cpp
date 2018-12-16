@@ -13,13 +13,13 @@
 using namespace std;
 
 Properties::Properties()// : Space()
-	:rent{ 10,20,40,60,100 }, houseCost{ 10 }, houses{ 0 }, price {0}
+	:rent{ 10,20,40,60,100 }, houseCost{ 10 }, houses{ 0 }, price {100}
 {
 
 }
 
 Properties::Properties(string name)
-	: rent{ 0,20,40,60,100 },houseCost{ 10 }, houses{ 0 }, price{0}
+	: rent{ 0,20,40,60,100 },houseCost{ 10 }, houses{ 0 }, price{100}
 {
 	
 	this->name = name;
@@ -103,5 +103,11 @@ array<string, 11> Properties::getTitleDeed()
 	displayArray[6] = line6.str();
 
 	line7 << left << "House Cost: " << this->getHC();
+	displayArray[7] = line7.str();
 	return displayArray;
+}
+
+string Properties::getSpaceType()
+{
+	return this->spaceType;
 }

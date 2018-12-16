@@ -13,3 +13,8 @@ array<string, 11> TaxSpace::getTitleDeed()
 	array<string, 11> returnArray{};
 	return returnArray;
 }
+
+string TaxSpace::getSpaceType()
+{
+	return this->spaceType;
+}

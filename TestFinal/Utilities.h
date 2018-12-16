@@ -18,6 +18,7 @@ public:
 	int getRent(int);
 	void buyUtil();
 	void setRent(std::array<int, 2> ren);
+	virtual std::array<std::string, 11> getTitleDeed();
 private:
 	int numOwned{};
 	int rent[2]{};

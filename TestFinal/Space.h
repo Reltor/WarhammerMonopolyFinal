@@ -28,7 +28,7 @@ public:
 	void setOwner(std::string);
 	std::string getOwner();
 	std::string getMortPrint();
-	std::string getSpaceType();
+	virtual std::string getSpaceType();
 	bool getMort();
 	void setOwned();
 	//Space & operator=(Space &&obj) = default;
