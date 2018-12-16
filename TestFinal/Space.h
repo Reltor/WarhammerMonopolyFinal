@@ -30,6 +30,7 @@ public:
 	std::string getMortPrint();
 	std::string getSpaceType();
 	bool getMort();
+	void setOwned();
 	//Space & operator=(Space &&obj) = default;
 
 

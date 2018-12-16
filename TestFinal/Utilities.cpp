@@ -39,7 +39,3 @@ Utilities::Utilities(string name)
 	Space();
 	this->name = name;
 }
-
-void Utilities::applyEffects(Player* p)
-{
-}

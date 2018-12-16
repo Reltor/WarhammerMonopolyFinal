@@ -2,6 +2,7 @@
 #include "time.h"
 #include <random>
 #include "Enums.h"
+#include "Player.h"
 using namespace std;
 Card::Card()
 {
@@ -25,7 +26,17 @@ Card::Card()
 	}
 }
 
-void Card::applyEffect()
+void Card::applyEffect(Player* p)
 {
-	if (effect == CardEffects::CHANGE_MONEY)
+	
+}
+
+CardEffects Card::getEffect()
+{
+	return this->effect;
+}
+
+int Card::getMagnitude()
+{
+	return this->effectMagnitude;
 }

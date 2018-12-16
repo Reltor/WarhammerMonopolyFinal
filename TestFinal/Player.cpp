@@ -135,3 +135,13 @@ int Player::getLastRoll()
 {
 	return this->lastRoll;
 }
+
+int Player::netWorth()
+{
+	int net = this->money;
+	for (Space* s : this->ownedProperties)
+	{
+		net += s->getMort();
+	}
+	return net;
+}

@@ -17,7 +17,7 @@ public:
 	Game(int);
 	void display(int);
 	Coord translateLoc(int);
-	void move(int, int);
+	void move(int, int, bool passGo = true);
 	void move(Player*, int, bool passGo = true);
 	Player* getPlayer(int);
 	int getNumPlayers();
@@ -28,6 +28,7 @@ public:
 	unsigned int rollDie();
 	bool doubles(Player*);
 	void mortgage(Player*);
+	void buyProperty(Player*, Space*);
 	
 
 private:

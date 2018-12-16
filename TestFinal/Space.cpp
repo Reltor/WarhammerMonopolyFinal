@@ -126,3 +126,8 @@ string Space::getSpaceType()
 {
 	return this->spaceType;
 }
+
+void Space::setOwned()
+{
+	this->owned = true;
+}

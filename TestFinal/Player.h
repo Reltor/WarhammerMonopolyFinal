@@ -37,6 +37,7 @@ public:
 	bool getJailedState();
 	void setLastRoll(int);
 	int getLastRoll();
+	int netWorth();
 
 private:
 	int money;

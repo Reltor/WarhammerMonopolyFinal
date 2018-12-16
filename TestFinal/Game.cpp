@@ -12,6 +12,8 @@
 #include <sstream>
 #include "EmptySpace.h"
 #include <typeinfo>
+#include "Enums.h"
+#include "Card.h"
 
 
 using namespace std;
@@ -166,30 +168,14 @@ Coord Game::translateLoc(int loc)
 }
 
 
-void Game::move(int playerNum, int numSpaces)
+void Game::move(int playerNum, int numSpaces, bool passGo)
 {
 	int newLoc;
 	Player* p = getPlayer(playerNum);
 	if (p->getLoc() + numSpaces > 39)
 	{
 		newLoc = p->getLoc() + numSpaces - 40;
-		p->addMoney(200);
-		system("pause");
-	}
-	else
-	{
-		newLoc = p->getLoc() + numSpaces;
-	}
-	p->setLoc(newLoc);
-}
 
-void Game::move(Player* p, int numSpaces, bool passGo = true)
-{
-	int newLoc;
-	if (p->getLoc() + numSpaces > 39)
-	{
-		newLoc = p->getLoc() + numSpaces - 40;
-		
 
 		if (passGo == true)
 		{
@@ -229,15 +215,19 @@ void Game::move(Player* p, int numSpaces, bool passGo = true)
 	{
 		if (curSpace->getOwned() == false)
 		{
-			//buyProperty(p);
+			cout << "Buying Space";
+			system("pause");
+			buyProperty(p,curSpace);
 		}
 		else if (spaceType == "Railroad" && curSpace->getOwner() == p->getName())
 		{
 			//move to another railroad or nein?
-			
+
 		}
 		else
 		{
+			cout << "something went wrong";
+			system("pause");
 			//chargeRent
 		}
 	}
@@ -248,8 +238,138 @@ void Game::move(Player* p, int numSpaces, bool passGo = true)
 
 	else if (spaceType == "Chance" || spaceType == "Community")
 	{
-		//apply card effects
+		Card drawnCard = Card();
+		CardEffects effect = drawnCard.getEffect();
+		int magnitude = drawnCard.getMagnitude();
+		if (effect == CardEffects::CHANGE_MONEY)
+		{
+			cout << "Your Money was Changed by $" << magnitude << endl;
+			system("pause");
+			p->addMoney(magnitude);
+		}
+		else if (effect == CardEffects::MOVE)
+		{
+			cout << "You were moved " << magnitude << " spaces" << endl;
+			move(p, magnitude);
+		}
+		else if (effect == CardEffects::MOVE_NO_GO)
+		{
+			cout << "You were moved " << magnitude << " spaces and did not pass go." << endl;
+			move(p, magnitude, false);
+		}
+		else if (effect == CardEffects::JAIL)
+		{
+			cout << "You were jailed" << endl;
+			p->jail();
+			p->resetDoubles();
+		}
 
+	}
+	else
+	{
+		cout << "reeeeee";
+	}
+}
+
+void Game::move(Player* p, int numSpaces, bool passGo)
+{
+	int newLoc;
+	if (p->getLoc() + numSpaces > 39)
+	{
+		newLoc = p->getLoc() + numSpaces - 40;
+
+
+		if (passGo == true)
+		{
+			p->addMoney(200);
+		}
+		else
+		{
+			//do nothing
+		}
+		system("pause");
+
+	}
+
+	else
+	{
+		newLoc = p->getLoc() + numSpaces;
+	}
+	p->setLoc(newLoc);
+
+	//handle all the fuckaroo
+
+	Space* curSpace = boardArray[newLoc];
+	string spaceType = curSpace->getSpaceType();
+	if (spaceType == "Empty")
+	{
+		if (curSpace->getName() == "Go To Jail")
+		{
+			p->jail();
+			p->resetDoubles();
+		}
+		else if (curSpace->getName() == "Go")
+		{
+			p->addMoney(200);
+		}
+	}
+	else if (spaceType == "Railroad" || spaceType == "Property" || spaceType == "Utilities")
+	{
+		if (curSpace->getOwned() == false)
+		{
+			cout << "Buying Space";
+			system("pause");
+			buyProperty(p, curSpace);
+		}
+		else if (spaceType == "Railroad" && curSpace->getOwner() == p->getName())
+		{
+			//move to another railroad or nein?
+
+		}
+		else
+		{
+			cout << "something went wrong";
+			system("pause");
+			//chargeRent
+		}
+	}
+	else if (spaceType == "Tax")
+	{
+		p->addMoney(-200);
+	}
+
+	else if (spaceType == "Chance" || spaceType == "Community")
+	{
+		Card drawnCard = Card();
+		CardEffects effect = drawnCard.getEffect();
+		int magnitude = drawnCard.getMagnitude();
+		if (effect == CardEffects::CHANGE_MONEY)
+		{
+			cout << "Your Money was Changed by $" << magnitude << endl;
+			system("pause");
+			p->addMoney(magnitude);
+		}
+		else if (effect == CardEffects::MOVE)
+		{
+			cout << "You were moved " << magnitude << " spaces" << endl;
+			move(p, magnitude);
+		}
+		else if (effect == CardEffects::MOVE_NO_GO)
+		{
+			cout << "You were moved " << magnitude << " spaces and did not pass go." << endl;
+			move(p, magnitude, false);
+		}
+		else if (effect == CardEffects::JAIL)
+		{
+			cout << "You were jailed" << endl;
+			p->jail();
+			p->resetDoubles();
+		}
+
+	}
+	else
+	{
+		cout << "reeeeee";
 	}
 
 }
@@ -338,7 +458,8 @@ void Game::displayMenu()
 	cout << "2 - Trade" << endl;
 	cout << "3 - Mortgage Property" << endl;
 	cout << "4 - Use Card" << endl;
-	cout << "5 - End Your Turn";
+	cout << "5 - Buy House" << endl;
+	cout << "6 - End Your Turn";
 }
 
 void Game::cheatMenu(Player* p)
@@ -515,4 +636,74 @@ void Game::mortgage(Player* p)
 			}
 		}
 	}
+}
+
+void Game::buyProperty(Player* p, Space* s)
+{
+	int userChoice = -1;
+	while (userChoice < 0 || userChoice > 1)
+	{
+		cout << "Your Current Funds are: $" << p->showMoney() << endl;
+		cout << "This Property Costs: $" << s->getPrice() <<  endl;
+		cout << "Buy (0) or Auction (1) Property? [If you dont have sufficient funds, you will be required to mortgage property or it will go to Auction] ";
+		cin >> userChoice;
+		if (p->netWorth() < s->getPrice())
+		{
+			cout << "Your Net Worth does not allow you to buy this, it will go to auction";
+			userChoice = 1;
+		}
+	}
+
+	if (userChoice == 0)
+	{
+		if (p->showMoney() > s->getPrice())
+		{
+			p->setProperties(s);
+			p->addMoney(0 - s->getPrice());
+			s->setOwner(p->getName());
+			s->setOwned();
+		}
+		else
+		{
+			while (p->showMoney() < s->getPrice())
+			{
+				cout << "You do not have enough funds to purchase this, going to mortgage screen" << endl;
+				mortgage(p);
+			}
+		}
+	}
+	else if (userChoice == 1)
+	{
+		Player* curBidder;
+		vector<unsigned int> bids(numPlayers);
+		for (int i = 0; i < numPlayers; ++i)
+		{
+			if (this->getPlayer(i)->getState() == 1)
+			{
+				curBidder = this->getPlayer(i);
+				while (bids[i] <= curBidder->showMoney())
+				{
+					cout << p->getName() << " how much do you bid? ";
+					cin >> bids[i];
+				}
+			}
+		}
+		int highBid = 0;
+		int highBidNum = 0;
+		for (int i = 0; i < numPlayers; ++i)
+		{
+			if (bids[i] > highBidNum)
+			{
+				highBidNum = bids[i];
+				highBid = i;
+			}
+
+		}
+		Player* winner = getPlayer(highBid);
+		winner->setProperties(s);
+		winner->addMoney(0 - s->getPrice());
+		s->setOwner(winner->getName());
+		s->setOwned();
+	}
+
 }

@@ -3,17 +3,21 @@
 #include <string>
 #include "Enums.h"
 #include <array>
+#include <random>
+#include "Player.h"
 
 class Card
 {
 public:
 	Card();
-	void applyEffect();
+	void applyEffect(Player*);
+	CardEffects getEffect();
+	int getMagnitude();
 
 private:
 	CardEffects effect;
 	static std::array<std::string, 5> effectText;
-	static std::default_random_engine engine;
+	std::default_random_engine engine;
 	int effectMagnitude; 
 
 };

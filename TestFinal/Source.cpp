@@ -55,7 +55,7 @@ int main()
 				
 				int totalMove = die1 + die2;
 				curPlayer->setLastRoll(totalMove);
-					bool endTurn = false;
+				bool endTurn = false;
 				bool wasThirdDouble = false;
 				if (die1 == die2)
 				{
@@ -90,7 +90,7 @@ int main()
 						cout << endl;
 						newGame.displayMenu();
 						cin >> menuChoice;
-						if (menuChoice < 1 || menuChoice > 5)
+						if (menuChoice < 1 || menuChoice > 6)
 						{
 							validChoice = false;
 						}
@@ -118,6 +118,10 @@ int main()
 						//use a card
 					}
 					else if (menuChoice == 5)
+					{
+						//buy a house
+					}
+					else if (menuChoice == 6)
 					{
 						endTurn = true;
 					}

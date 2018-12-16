@@ -98,5 +98,10 @@ array<string, 11> Properties::getTitleDeed()
 
 	line5 << left << "Rent: " << this->getRent();
 	displayArray[5] = line5.str();
+
+	line6 << left << "Price: " << this->getPrice();
+	displayArray[6] = line6.str();
+
+	line7 << left << "House Cost: " << this->getHC();
 	return displayArray;
 }
