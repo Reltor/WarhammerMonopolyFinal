@@ -1,0 +1,27 @@
+void Game::Trade(Player* curPlayer)
+{
+	for (int i{ 0 }; i < playerList.size(); i++)
+	{
+		cout << i + 1 << ") " << playerList[i].getName() << endl;
+	}
+	int choice{ 0 };
+	bool done = false;
+	while (!done)
+	{
+		cout << "Select the player you would like to trade with by number: ";
+		cin >> choice;
+		choice -= 1;
+		if (choice > playerList.size() || choice < 0)
+		{
+			cout << "Invalid input";
+		}
+		else if(curPlayer->getName().compare(playerList[choice].getName()) != 0)
+		{
+			cout << "Invalid, you can not trade with yourself";
+		}
+		else
+		{
+			Functions::trade(*curPlayer, playerList[choice]);
+		}
+	}
+}
