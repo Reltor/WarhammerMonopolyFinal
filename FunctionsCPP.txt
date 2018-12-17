@@ -1,3 +1,55 @@
+Replace the build houses function with this then edit the decloration in the .h because it no longer takes a property as an input
+
+void Functions::buyHouse(Player & p)								//This function is used to buy houses for properties
+{
+	vector<Space*> tempVec;											//Creates a temporary vector for the function
+	tempVec = p.getProperties();
+	for (int i{ 0 }; i < tempVec.size(); ++i)
+	{
+		cout << i + 1 << ") " << tempVec[i]->getName() << endl;		//Shows all the players properties
+	}
+	cout << "Select the property you would like to build a house on using a number: ";
+	int choice;
+	bool done = false;
+	while (!done)
+	{
+		cin >> choice;
+		choice -= 1;
+		if (choice < 0 || choice > tempVec.size())					//Makes sure the number is within the array
+		{
+			cout << "Invalid number";
+		}
+		else if (tempVec[choice]->getSpaceType().compare("Property") == 0)		//Makes sure the property can be built on
+		{
+			tempVec[choice]->buyHouse();
+			p.payRent(tempVec[choice]->getHC());
+		}
+		else
+		{
+			cout << "You can not build a house on this tile";		//For if the property can't be built on
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+This is just the trade function incase you need it
+
+
 void Functions::trade(Player & p, Player & t)						//This one was... fun, it is used for trading between players
 {
 	vector<Space*> aVec;											//The vector used by player a to temporaraly store their properties
